@@ -1,0 +1,93 @@
+/*
+ * @Descripttion: 
+ * @version: 1.0
+ * @Author: YKLiu
+ * @Date: 2020-01-15 17:26:48
+ * @LastEditTime : 2020-01-19 20:05:50
+ */
+
+#ifndef __FX_HPCA_PERIPHERAL_ADDR_HEADER_H__
+#define __FX_HPCA_PERIPHERAL_ADDR_HEADER_H__
+#include <stdint.h>
+// The following are physical addresses of the peripheral registers and offsets
+#define SYS_SOFT_RSTN (0X0)
+#define INTR_STATE (0X4)
+#define INTR_MASK (0X8)
+#define INTR_CLEAR (0XC)
+#define DMA_BIASRAM_STARTADDR (0X40)
+#define DMA_BIASRAM_DATANUM (0X44)
+#define DMA_BIASRAM_START (0X48)
+#define DMA_BIASRAM_DONE (0X4C)
+#define DMA_BNMULRAM_STARTADDR (0X50)
+#define DMA_BNMULRAM_DATANUM (0X54)
+#define DMA_BNMULRAM_START (0X58)
+#define DMA_BNMULRAM_DONE (0X5C)
+#define DMA_BNBIASRAM_STARTADDR (0X60)
+#define DMA_BNBIASRAM_DATANUM (0X64)
+#define DMA_BNBIASRAM_START (0X68)
+#define DMA_BNBIASRAM_DONE (0X6C)
+#define DMA_WEIRAM_STARTADDR (0X70)
+#define DMA_WEIRAM_DATANUM (0X74)
+#define DMA_WEIRAM_START (0X78)
+#define DMA_WEIRAM_DONE (0X7C)
+#define DMA_WRACTRAM_STARTADDR (0X80)
+#define DMA_WRACTRAM_DATANUM (0X84)
+#define DMA_WRACTRAM_START (0X88)
+#define DMA_WRACTRAM_DONE (0X8C)
+#define DMA_RDACTRAM_STARTADDR (0X90)
+#define DMA_RDACTRAM_DATANUM (0X94)
+#define DMA_RDACTRAM_START (0X98)
+#define DMA_RDACTRAM_DONE (0X9C)
+#define DAM_CTRL_SRC (0XA0)
+#define DAM_REPEAT_THRESHOLD (0XA4)
+
+#define SEL_DRAM_SRAM_BANK (0XF0)
+#define COL_OLAP_RAM_ADDR_OFFSET (0XF4)
+#define ROW_OLAP_RAM_ADDR_OFFSET (0XF8)
+#define WHO_PROVIDE_INPUT (0XFC)
+#define WHO_PROVIDE_OUTPUT (0X100)
+#define WHO_PROVIDE_RES_INPUT (0X104)
+#define WHICH_ACT_BANK_IN (0X108)
+#define WHICH_ACT_BANK_OUT (0X10C)
+#define WHICH_RES_ACT_BANK_IN (0X110)
+#define NEED_FETCH_ANOTHER_WEI_BUFF (0X118)
+#define OUT_CHANNEL_01 (0X11C)
+#define OUT_CHANNEL_23 (0X120)
+#define KERNEL_SIZE (0X130)
+#define P_IN (0X13C)
+#define P_OUT (0X140)
+#define V_LAYER (0X144)
+#define BN_LAYER (0X148)
+#define RELU_LAYER (0X14C)
+#define RESADDR_LAYER (0X150)
+#define MAX_FETCH_WEI_BUF (0X154)
+#define QUAN_VALUE_OF_SIX (0X158)
+#define SELOV_RAM_TO_READ (0X15C)
+#define LAST_LAYER_STRIDE (0X160)
+#define FIRST_TILE (0X164)
+#define SEL_RELU6 (0X168)
+#define ROW_OLAP_VALID (0X16C)
+#define FRAC_IN (0X170)
+#define FRAC_OUT (0X174)
+#define POOL_STATE (0X178)
+#define START_RUN_OP (0X17C)
+#define POOL_START (0X180)
+#define RAM2DDR_START_ADDR (0X184)
+#define RAM2DDR_BYTE_NUM (0X188)
+#define DDR2RAM_START_ADDR1 (0X18C)
+#define DDR2RAM_START_ADDR2 (0X190)
+#define DDR2RAM_START_ADDR3 (0X194)
+#define DDR2RAM_START_ADDR4 (0X198)
+#define DDR2RAM_BYTE_NUM (0X19C)
+#define POOL_FINISH (0X1A0)
+#define POOL_FINISH_FLAG (0X1A4)
+#define POOL_BUSY (0X1A8)
+#define COMPUTE_DONE (0X1AC)
+#define ACTRAM_MASTER (0X1B0)
+
+// helper function
+inline uint32_t *paddr2vaddr(uint32_t *vir_addr_base, uint32_t phy_addr_offset)
+{
+    return vir_addr_base + phy_addr_offset;
+}
+#endif
